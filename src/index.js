@@ -10,7 +10,8 @@ import schema from './schema.json';
 import uischema from './uischema.json';
 import { Actions, JsonForms, jsonformsReducer } from '@jsonforms/core';
 import '@jsonforms/material-renderers';
-import RatingControl, {ratingControlTester} from './RatingControl';
+import RatingControl from './RatingControl';
+import ratingControlTester from './ratingControlTester'
 
 const data = {
   name: 'Send email to Adrian',
