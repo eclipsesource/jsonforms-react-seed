@@ -2,8 +2,6 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import schema from './schema.json';
-import uischema from './uischema.json';
 import {DispatchRenderer, getData} from '@jsonforms/core';
 
 
@@ -25,10 +23,7 @@ class App extends Component {
         </div>
 
         <div className="demoform">
-          <DispatchRenderer
-            schema={schema}
-            uischema={uischema}
-          />
+          <DispatchRenderer />
         </div>
       </div>
     );
