@@ -14,10 +14,10 @@ Let's briefly have a look at the most important files:
 * `src/App.js` is the main React component and makes use of the JSON Forms Component
   in order to render a form.
   
-The [data schema](https://github.com/edgarmueller/jsonforms-react-seed/blob/master/src/schema.json) defines   
+The [data schema](https://github.com/eclipsesource/jsonforms-react-seed/blob/master/src/schema.json) defines   
 the structure of a Task: it contains attributes such as title, description, due date and so on.
 
-The [corresponding UI schema](https://github.com/edgarmueller/jsonforms-react-seed/blob/master/src/uischema.json) 
+The [corresponding UI schema](https://github.com/eclipsesource/jsonforms-react-seed/blob/master/src/uischema.json) 
 specifies controls for each property and puts them into a vertical layout that in turn contains two
 horizontal layouts.
 
@@ -30,15 +30,32 @@ Please refer to TODO for how to do this.
 ## Setting up the store
 
 ```js
-import schema from './schema.json';
-import uischema from './uischema.json';
+const store = createStore(
+  jsonformsReducer(),
+  {
+    jsonforms: {
+      common: {
+        data,
+        schema,
+        uischema
+      },
+      renderers: JsonForms.renderers,
+      fields: JsonForms.fields
+    },
+  },
+  applyMiddleware(thunk)
+);
 
-// TODO: update JSONForms to most recent version to support new signature
-const store = initJsonFormsStore({
+// initialize store
+store.dispatch({
+  type: Actions.INIT,
   data,
-  schema, 
+  schema,
   uischema,
 });
+
+// trigger initial validation
+store.dispatch(Actions.validate());
 ```
 
 We then use the `Provider` component provided by `react-redux` to provide the store to the 
