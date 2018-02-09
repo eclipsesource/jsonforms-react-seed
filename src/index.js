@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import schema from './schema.json';
 import uischema from './uischema.json';
 import { Actions, JsonForms, jsonformsReducer } from '@jsonforms/core';
-import '@jsonforms/material-renderers';
+import { materialFields, materialRenderers } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester'
 
@@ -22,29 +21,17 @@ const data = {
 };
 
 const store = createStore(
-  jsonformsReducer(),
+  combineReducers({ jsonforms: jsonformsReducer() }),
   {
     jsonforms: {
-      common: {
-        data,
-        schema,
-        uischema
-      },
-      renderers: JsonForms.renderers,
-      fields: JsonForms.fields
+      fields: materialFields,
+      renderers: materialRenderers
     },
-  },
-  applyMiddleware(thunk)
+  }
 );
 
-store.dispatch({
-  type: Actions.INIT,
-  data,
-  schema,
-  uischema,
-});
+store.dispatch(Actions.init(data, schema, uischema));
 
-store.dispatch(Actions.validate());
 
 // Uncomment this line (and respective import) to register our custom renderer
 store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
