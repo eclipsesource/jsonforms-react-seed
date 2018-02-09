@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {DispatchRenderer, getData} from '@jsonforms/core';
+import {JsonForms, getData} from '@jsonforms/core';
 
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
         </div>
 
         <div className="demoform">
-          <DispatchRenderer />
+          <JsonForms />
         </div>
       </div>
     );
