@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import schema from './schema.json';
 import uischema from './uischema.json';
-import { Actions, JsonForms, jsonformsReducer } from '@jsonforms/core';
+import { Actions, jsonformsReducer } from '@jsonforms/core';
 import { materialFields, materialRenderers } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester'
