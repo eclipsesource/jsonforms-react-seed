@@ -5,6 +5,9 @@ in order to render a simple form for displaying a task entity.
  
 It is based on create-react-app and only contains minor modifications.
 
+ * Execute `npm install` to install the prerequisites.
+ * Execute `npm start` to start the application.
+
 ## File Structure
 Let's briefly have a look at the most important files:
 * `src/schema.json` contains the JSON schema (also referred to as 'data schema')
