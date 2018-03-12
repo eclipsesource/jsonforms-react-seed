@@ -2,7 +2,8 @@ import {connect} from 'react-redux';
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {JsonForms, getData} from '@jsonforms/core';
+import { getData } from '@jsonforms/core';
+import { JsonForms } from '@jsonforms/react';
 
 
 class App extends Component {
