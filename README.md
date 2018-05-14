@@ -28,7 +28,7 @@ Both the data schema and the UI schema are imported within `index.js` and are us
 to set up a redux store. We make use of a helper function exported by JSON Forms
 which expects the initial state. If you already have an existing redux store, 
 you'll need to import the jsonforms reducer and add it to your store. 
-Please refer to TODO for how to do this.
+Please refer to [the tutorial](https://jsonforms.io/docs/tutorial) for how to do this.
 
 ## Setting up the store
 
@@ -85,4 +85,4 @@ Since we also like to display the actual data that is being edited we
 from it. 
 
 ## Custom renderers
-Please see our corresponding tutorial (TODO) on how to add custom renderers.
+Please see [our corresponding tutorial](https://jsonforms.io/docs/tutorial) on how to add custom renderers.
