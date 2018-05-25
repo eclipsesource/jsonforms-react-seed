@@ -5,7 +5,7 @@ in order to render a simple form for displaying a task entity.
  
 It is based on create-react-app and only contains minor modifications.
 
- * Execute `npm install` to install the prerequisites.
+ * Execute `npm ci` to install the prerequisites. If you want to have the latest released versions use `npm install`.
  * Execute `npm start` to start the application.
 
 ## File Structure
