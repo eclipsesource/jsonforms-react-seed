@@ -7,6 +7,8 @@ It is based on create-react-app and only contains minor modifications.
 
  * Execute `npm ci` to install the prerequisites. If you want to have the latest released versions use `npm install`.
  * Execute `npm start` to start the application.
+ 
+ Browse to http://localhost:3000 to see the application in action.
 
 ## File Structure
 Let's briefly have a look at the most important files:
