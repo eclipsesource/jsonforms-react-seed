@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-bottom: 0.5em;
 }
 
 .App-logo {
@@ -25,19 +26,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-.data-title {
-  text-align: center;
-  margin-bottom: 0;
-}
-
-.data-content {
-  display: flex;
-  justify-content: center;
-}
-
-.demoform {
-  width: 80%;
-  margin: auto;
 }

@@ -1,40 +1,72 @@
-import {connect} from 'react-redux';
-import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux';
+import React from 'react';
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import withStyles from "@material-ui/core/styles/withStyles";
 import { getData } from '@jsonforms/core';
 import { JsonForms } from '@jsonforms/react';
+import logo from './logo.svg';
+import './App.css';
+
+const styles = {
+  container: {
+    padding: '2em'
+  },
+  title: {
+    textAlign: 'center',
+    padding: '0.25em'
+  },
+  dataContent: {
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: '0.25em'
+  },
+  demoform: {
+    margin: 'auto'
+  }
+};
 
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to JSON Forms with React</h1>
-            <p className="App-intro">More Forms. Less Code.</p>
-          </header>
+const App = ({ classes, dataAsString }) => (
+  <div>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">Welcome to JSON Forms with React</h1>
+        <p className="App-intro">More Forms. Less Code.</p>
+      </header>
+    </div>
+
+    <Grid container justify={'center'} spacing={24} className={classes.container}>
+      <Grid item sm={3}>
+        <Typography
+          variant={'display1'}
+          className={classes.title}
+        >
+          Bound data
+        </Typography>
+        <div className={classes.dataContent}  style={{ backgroundColor: '#cecece'}}>
+          <pre>{dataAsString}</pre>
         </div>
-
-        <h4 className="data-title">Bound data</h4>
-        <div className="data-content">
-          <pre>{this.props.dataAsString}</pre>
-        </div>
-
-        <div className="demoform">
+      </Grid>
+      <Grid item sm={6}>
+        <Typography
+          variant={'display1'}
+          className={classes.title}
+        >
+          Rendered form
+        </Typography>
+        <div className={classes.demoform}>
           <JsonForms />
         </div>
-      </div>
-    );
-  }
-
-}
+      </Grid>
+    </Grid>
+  </div>
+);
 
 const mapStateToProps = state => {
   return { dataAsString: JSON.stringify(getData(state), null, 2) }
 };
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, null)(withStyles(styles)(App));
 
