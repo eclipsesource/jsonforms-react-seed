@@ -19,7 +19,8 @@ const styles = {
   dataContent: {
     display: 'flex',
     justifyContent: 'center',
-    borderRadius: '0.25em'
+    borderRadius: '0.25em',
+    backgroundColor: '#cecece'
   },
   demoform: {
     margin: 'auto'
@@ -45,7 +46,7 @@ const App = ({ classes, dataAsString }) => (
         >
           Bound data
         </Typography>
-        <div className={classes.dataContent}  style={{ backgroundColor: '#cecece'}}>
+        <div className={classes.dataContent}>
           <pre>{dataAsString}</pre>
         </div>
       </Grid>
