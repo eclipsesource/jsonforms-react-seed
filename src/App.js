@@ -9,6 +9,9 @@ import logo from './logo.svg';
 import './App.css';
 
 const styles = {
+  container: {
+    padding: '1em'
+  },
   title: {
     textAlign: 'center',
     padding: '0.25em'
@@ -35,7 +38,7 @@ const App = ({ classes, dataAsString }) => (
       </header>
     </div>
 
-    <Grid container justify={'center'} spacing={24}>
+    <Grid container justify={'center'} spacing={24} className={classes.container}>
       <Grid item sm={6}>
         <Typography
           variant={'display1'}
