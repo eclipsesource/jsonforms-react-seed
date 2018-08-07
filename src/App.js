@@ -1,17 +1,14 @@
 import { connect } from 'react-redux';
+import { JsonForms } from '@jsonforms/react';
 import React from 'react';
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { getData } from '@jsonforms/core';
-import { JsonForms } from '@jsonforms/react';
 import logo from './logo.svg';
 import './App.css';
 
 const styles = {
-  container: {
-    padding: '2em'
-  },
   title: {
     textAlign: 'center',
     padding: '0.25em'
@@ -20,7 +17,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     borderRadius: '0.25em',
-    backgroundColor: '#cecece'
+    backgroundColor: '#cecece',
   },
   demoform: {
     margin: 'auto'
@@ -38,8 +35,8 @@ const App = ({ classes, dataAsString }) => (
       </header>
     </div>
 
-    <Grid container justify={'center'} spacing={24} className={classes.container}>
-      <Grid item sm={3}>
+    <Grid container justify={'center'} spacing={24}>
+      <Grid item sm={6}>
         <Typography
           variant={'display1'}
           className={classes.title}
