@@ -41,6 +41,7 @@
             "type": "Control",
             "scope": "#/properties/recurrence_interval",
             "rule": {
+                "type": "LEAF",
                 "effect": "HIDE",
                 "condition": {
                     "scope": "#/properties/recurrence",
