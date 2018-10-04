@@ -10,6 +10,16 @@ export class Rating extends React.Component {
     };
   }
 
+  static getDerivedStateFromProps = (nextProps, prevState) => {
+    if (prevState.rating !== nextProps.value) {
+      return {
+        rating: nextProps.value,
+        hoverAt: prevState.hoverAt
+      };
+    }
+    return null;
+  };
+
   handleMouseOver(idx) {
     this.setState({
       hoverAt: idx + 1
@@ -32,6 +42,9 @@ export class Rating extends React.Component {
     const { onClick } = this.props;
 
     return (<div>
+        <p>
+          Rating:
+        </p>
       {
         [0, 1, 2, 3, 4].map(i => {
           const rating = this.state.hoverAt != null ? this.state.hoverAt : this.state.rating;
@@ -41,6 +54,7 @@ export class Rating extends React.Component {
             onClick={() => {
               this.handleClick(i);
               onClick({ value: i + 1 });
+
             }}
             key={`${this.props.id}_${i}`}
           >
