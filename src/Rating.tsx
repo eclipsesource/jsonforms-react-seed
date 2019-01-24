@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-export class Rating extends React.Component {
+// TODO: typings
+export class Rating extends React.Component<any, any> {
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       rating: props.value,
@@ -10,7 +11,7 @@ export class Rating extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps = (nextProps, prevState) => {
+  static getDerivedStateFromProps = (nextProps: any, prevState: any) => {
     if (prevState.rating !== nextProps.value) {
       return {
         rating: nextProps.value,
@@ -20,7 +21,7 @@ export class Rating extends React.Component {
     return null;
   };
 
-  handleMouseOver(idx) {
+  handleMouseOver(idx: number) {
     this.setState({
       hoverAt: idx + 1
     });
@@ -32,7 +33,7 @@ export class Rating extends React.Component {
     });
   }
 
-  handleClick(idx) {
+  handleClick(idx: number) {
     this.setState({
       rating: idx + 1
     });
