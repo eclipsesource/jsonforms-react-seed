@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@jsonforms/core": "2.2.3",
-    "@jsonforms/material-renderers": "2.2.3",
-    "@jsonforms/react": "2.2.3",
-    "@material-ui/core": "^3.9.0",
+    "@jsonforms/core": "2.3.0",
+    "@jsonforms/material-renderers": "2.3.0",
+    "@jsonforms/react": "2.3.0",
+    "@material-ui/core": "^4.1.1",
     "@types/jest": "^23.3.12",
     "@types/node": "^10.12.18",
     "@types/react": "^16.4.14",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "cypress": "^3.2.0",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "^3.0.1",
     "start-server-and-test": "^1.9.1"
   },
   "scripts": {
