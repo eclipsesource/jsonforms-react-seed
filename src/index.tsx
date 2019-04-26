@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, Reducer, AnyAction } from 'redux';
 import { Provider } from 'react-redux';
 import schema from './schema.json';
 import uischema from './uischema.json';
-import { Actions, jsonformsReducer } from '@jsonforms/core';
-import { materialFields, materialRenderers } from '@jsonforms/material-renderers';
+import { Actions, jsonformsReducer, JsonFormsState } from '@jsonforms/core';
+import { materialCells, materialRenderers } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester'
 
@@ -20,15 +20,15 @@ const data = {
   rating: 3,
 };
 
-const store = createStore(
-  combineReducers({ jsonforms: jsonformsReducer() }),
-  {
+const initState: JsonFormsState = {
     jsonforms: {
-      fields: materialFields,
+      cells: materialCells,
       renderers: materialRenderers
-    },
+    }
   }
-);
+
+const rootReducer: Reducer<JsonFormsState, AnyAction> = combineReducers({ jsonforms: jsonformsReducer() });
+const store = createStore(rootReducer, initState);
 
 store.dispatch(Actions.init(data, schema, uischema));
 
