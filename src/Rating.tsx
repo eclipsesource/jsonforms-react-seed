@@ -42,7 +42,7 @@ export class Rating extends React.Component<any, any> {
   render() {
     const { onClick } = this.props;
 
-    return (<div>
+    return (<div id="#/properties/rating">
         <p>
           Rating:
         </p>

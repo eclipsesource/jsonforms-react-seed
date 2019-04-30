@@ -1,0 +1,17 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - 'node'
+
+cache: npm
+
+before_install:
+  - npm update
+
+install:
+  - npm ci
+
+script:
+  - npm run test-cypress
