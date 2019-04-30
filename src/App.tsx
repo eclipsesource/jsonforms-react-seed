@@ -55,7 +55,7 @@ class App extends React.Component<AppProps, any> {
               Bound data
             </Typography>
             <div className={classes.dataContent}>
-              <pre>{dataAsString}</pre>
+              <pre id="boundData">{dataAsString}</pre>
             </div>
           </Grid>
           <Grid item sm={6}>
@@ -65,7 +65,7 @@ class App extends React.Component<AppProps, any> {
             >
               Rendered form
             </Typography>
-            <div className={classes.demoform}>
+            <div className={classes.demoform} id="form">
               <JsonForms/>
             </div>
           </Grid>
