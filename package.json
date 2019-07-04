@@ -16,7 +16,8 @@
     "react-dom": "^16.8.4",
     "react-redux": "^7.0.2",
     "redux": "^4.0.1",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "cypress": "^3.2.0",
@@ -29,12 +30,15 @@
     "test": "react-scripts test --env=jsdom",
     "test-cypress": "start-server-and-test start http://localhost:3000 cypress",
     "cypress": "cypress run",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "snyk": true
 }
