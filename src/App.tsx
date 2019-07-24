@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import { JsonForms } from '@jsonforms/react';
+import { JsonFormsDispatch } from '@jsonforms/react';
 import React from 'react';
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
-import {getData, JsonFormsState} from '@jsonforms/core';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import { getData, JsonFormsState } from '@jsonforms/core';
 import logo from './logo.svg';
 import './App.css';
-import createStyles from "@material-ui/core/styles/createStyles";
+import createStyles from '@material-ui/core/styles/createStyles';
 
 const styles = createStyles({
   container: {
@@ -21,7 +21,7 @@ const styles = createStyles({
     display: 'flex',
     justifyContent: 'center',
     borderRadius: '0.25em',
-    backgroundColor: '#cecece',
+    backgroundColor: '#cecece'
   },
   demoform: {
     margin: 'auto'
@@ -33,25 +33,26 @@ export interface AppProps extends WithStyles<typeof styles> {
 }
 
 class App extends React.Component<AppProps, any> {
-
   render() {
     const { classes, dataAsString } = this.props;
     return (
       <div>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
+            <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to JSON Forms with React</h1>
             <p className="App-intro">More Forms. Less Code.</p>
           </header>
         </div>
 
-        <Grid container justify={'center'} spacing={24} className={classes.container}>
+        <Grid
+          container
+          justify={'center'}
+          spacing={24}
+          className={classes.container}
+        >
           <Grid item sm={6}>
-            <Typography
-              variant={'display1'}
-              className={classes.title}
-            >
+            <Typography variant={'display1'} className={classes.title}>
               Bound data
             </Typography>
             <div className={classes.dataContent}>
@@ -59,14 +60,11 @@ class App extends React.Component<AppProps, any> {
             </div>
           </Grid>
           <Grid item sm={6}>
-            <Typography
-              variant={'display1'}
-              className={classes.title}
-            >
+            <Typography variant={'display1'} className={classes.title}>
               Rendered form
             </Typography>
             <div className={classes.demoform} id="form">
-              <JsonForms/>
+              <JsonFormsDispatch />
             </div>
           </Grid>
         </Grid>
@@ -76,8 +74,7 @@ class App extends React.Component<AppProps, any> {
 }
 
 const mapStateToProps = (state: JsonFormsState) => {
-  return { dataAsString: JSON.stringify(getData(state), null, 2) }
+  return { dataAsString: JSON.stringify(getData(state), null, 2) };
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(App));
-
