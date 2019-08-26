@@ -1,14 +1,17 @@
-sudo: required
-
 language: node_js
 
 node_js:
-  - 'node'
+  - 10
 
-cache: npm
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
 
-before_install:
-  - npm update
+cache:
+  npm: true
+  directories:
+    - ~/.cache
 
 install:
   - npm ci
