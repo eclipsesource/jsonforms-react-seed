@@ -13,6 +13,7 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
 // Setup Redux store
 const data = {
@@ -33,7 +34,7 @@ const initState: JsonFormsState = {
 const rootReducer: Reducer<JsonFormsState, AnyAction> = combineReducers({
   jsonforms: jsonformsReducer()
 });
-const store = createStore(rootReducer, initState);
+const store = createStore(rootReducer, initState, devToolsEnhancer({}));
 store.dispatch(Actions.init(data, schema, uischema));
 
 // Register custom renderer for the Redux tab
