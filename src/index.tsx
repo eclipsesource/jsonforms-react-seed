@@ -14,6 +14,7 @@ import {
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
 import { devToolsEnhancer } from 'redux-devtools-extension';
+import SampleCell, { sampleCellTester } from './SampleCell';
 
 // Setup Redux store
 const data = {
@@ -39,6 +40,7 @@ store.dispatch(Actions.init(data, schema, uischema));
 
 // Register custom renderer for the Redux tab
 store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
+store.dispatch(Actions.registerCell(sampleCellTester, SampleCell));
 
 ReactDOM.render(<App store={store} />, document.getElementById('root'));
 registerServiceWorker();

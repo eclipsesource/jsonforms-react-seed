@@ -22,6 +22,9 @@ import { Store } from 'redux';
 import { get } from 'lodash';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
+import { sampleCell } from './SampleCell';
+
+const cells = [...materialCells, sampleCell];
 
 const styles = createStyles({
   container: {
@@ -147,7 +150,7 @@ const App = ({ store, classes }: AppProps) => {
                   //register custom renderer
                   { tester: ratingControlTester, renderer: RatingControl }
                 ]}
-                cells={materialCells}
+                cells={cells}
                 onChange={({ errors, data }) => setStandaloneData(data)}
               />
             </div>
