@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {mapDispatchToControlProps, mapStateToControlProps} from '@jsonforms/core';
-import {connect} from 'react-redux';
+import {withJsonFormsControlProps} from '@jsonforms/react';
 import {Rating} from './Rating';
 
 interface RatingControlProps {
@@ -16,7 +15,4 @@ const RatingControl = ({ data, handleChange, path }: RatingControlProps) => (
   />
 );
 
-export default connect(
-  mapStateToControlProps,
-  mapDispatchToControlProps,
-)(RatingControl as any);
+export default withJsonFormsControlProps(RatingControl);
