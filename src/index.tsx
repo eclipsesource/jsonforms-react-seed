@@ -7,9 +7,12 @@ import { combineReducers, createStore, Reducer, AnyAction } from 'redux';
 import schema from './schema.json';
 import uischema from './uischema.json';
 import { Actions, jsonformsReducer, JsonFormsState } from '@jsonforms/core';
-import { materialCells, materialRenderers } from '@jsonforms/material-renderers';
+import {
+  materialCells,
+  materialRenderers
+} from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
-import ratingControlTester from './ratingControlTester'
+import ratingControlTester from './ratingControlTester';
 
 // Setup Redux store
 const data = {
@@ -17,26 +20,24 @@ const data = {
   description: 'Confirm if you have passed the subject\nHereby ...',
   done: true,
   recurrence: 'Daily',
-  rating: 3,
+  rating: 3
 };
 
 const initState: JsonFormsState = {
-    jsonforms: {
-      cells: materialCells,
-      renderers: materialRenderers
-    }
+  jsonforms: {
+    cells: materialCells,
+    renderers: materialRenderers
   }
+};
 
-const rootReducer: Reducer<JsonFormsState, AnyAction> = combineReducers({ jsonforms: jsonformsReducer() });
+const rootReducer: Reducer<JsonFormsState, AnyAction> = combineReducers({
+  jsonforms: jsonformsReducer()
+});
 const store = createStore(rootReducer, initState);
 store.dispatch(Actions.init(data, schema, uischema));
-
 
 // Register custom renderer for the Redux tab
 store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
 
-ReactDOM.render(
-    <App store={store}/>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App store={store} />, document.getElementById('root'));
 registerServiceWorker();
