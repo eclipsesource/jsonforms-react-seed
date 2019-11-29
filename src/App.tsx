@@ -14,7 +14,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import schema from "./schema.json";
 import uischema from "./uischema.json";
-import { materialRenderers } from "@jsonforms/material-renderers";
+import { materialCells, materialRenderers } from "@jsonforms/material-renderers";
 import { Store } from "redux";
 import { get } from "lodash";
 import RatingControl from "./RatingControl";
@@ -144,6 +144,7 @@ const App = ({ store, classes }: AppProps) => {
                   //register custom renderer
                   { tester: ratingControlTester, renderer: RatingControl }
                 ]}
+                cells={materialCells}
                 onChange={({ errors, data }) => setStandaloneData(data)}
               />
             </div>
