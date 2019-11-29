@@ -1,3 +1,6 @@
-import { rankWith, scopeEndsWith } from '@jsonforms/core';
+import { rankWith, scopeEndsWith } from "@jsonforms/core";
 
-export default rankWith(Number.MAX_VALUE, scopeEndsWith('rating'));
+export default rankWith(
+  3, //increase rank as needed
+  scopeEndsWith("rating")
+);
