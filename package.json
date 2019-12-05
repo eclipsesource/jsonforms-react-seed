@@ -31,9 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test-cypress": "start-server-and-test start http://localhost:3000 cypress",
-    "cypress": "cypress run",
-    "eject": "react-scripts eject"
+    "test-cypress": "start-server-and-test start http://localhost:3000 './node_modules/.bin/cypress run'",
+    "cypress": "cypress open"
   },
   "browserslist": [
     ">0.2%",
