@@ -1,8 +1,8 @@
-import React, { Fragment, useState, useEffect, useCallback } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import {
   JsonForms,
   JsonFormsDispatch,
-  JsonFormsReduxContext
+  JsonFormsReduxContext,
 } from '@jsonforms/react';
 import { Provider } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -16,7 +16,7 @@ import schema from './schema.json';
 import uischema from './uischema.json';
 import {
   materialCells,
-  materialRenderers
+  materialRenderers,
 } from '@jsonforms/material-renderers';
 import { Store } from 'redux';
 import { get } from 'lodash';
@@ -25,22 +25,22 @@ import ratingControlTester from './ratingControlTester';
 
 const styles = createStyles({
   container: {
-    padding: '1em'
+    padding: '1em',
   },
   title: {
     textAlign: 'center',
-    padding: '0.25em'
+    padding: '0.25em',
   },
   dataContent: {
     display: 'flex',
     justifyContent: 'center',
     borderRadius: '0.25em',
-    backgroundColor: '#cecece'
+    backgroundColor: '#cecece',
   },
   demoform: {
     margin: 'auto',
-    padding: '1rem'
-  }
+    padding: '1rem',
+  },
 });
 
 export interface AppProps extends WithStyles<typeof styles> {
@@ -52,7 +52,7 @@ const data = {
   description: 'Confirm if you have passed the subject\nHereby ...',
   done: true,
   recurrence: 'Daily',
-  rating: 3
+  rating: 3,
 };
 
 const getDataAsStringFromStore = (store: Store) =>
@@ -64,21 +64,26 @@ const getDataAsStringFromStore = (store: Store) =>
       )
     : '';
 
+const renderers = [
+  ...materialRenderers,
+  //register custom renderers
+  { tester: ratingControlTester, renderer: RatingControl },
+];
+
 const App = ({ store, classes }: AppProps) => {
   const [tabIdx, setTabIdx] = useState(0);
   const [displayDataAsString, setDisplayDataAsString] = useState('');
-  const [standaloneData, setStandaloneData] = useState(data);
-  const handleTabChange = useCallback(
-    (event: any, newValue: number) => {
-      setTabIdx(newValue);
-      setDisplayDataAsString(
-        newValue === 0
-          ? getDataAsStringFromStore(store)
-          : JSON.stringify(standaloneData, null, 2)
-      );
-    },
-    [store, standaloneData]
-  );
+  const [jsonformsInputData, setJsonformsInputData] = useState<any>(data);
+  const [jsonformsOutputData, setJsonformsOutputData] = useState<any>(data);
+
+  useEffect(() => {
+    if (tabIdx === 0) {
+      setJsonformsInputData(jsonformsOutputData);
+      setDisplayDataAsString(JSON.stringify(jsonformsOutputData, null, 2));
+    } else {
+      setDisplayDataAsString(getDataAsStringFromStore(store));
+    }
+  }, [tabIdx, store, jsonformsOutputData]);
 
   useEffect(() => {
     const updateStringData = () => {
@@ -90,8 +95,8 @@ const App = ({ store, classes }: AppProps) => {
   }, [store]);
 
   useEffect(() => {
-    setDisplayDataAsString(JSON.stringify(standaloneData, null, 2));
-  }, [standaloneData]);
+    setDisplayDataAsString(JSON.stringify(jsonformsOutputData, null, 2));
+  }, [jsonformsOutputData]);
 
   return (
     <Fragment>
@@ -121,11 +126,23 @@ const App = ({ store, classes }: AppProps) => {
           <Typography variant={'h3'} className={classes.title}>
             Rendered form
           </Typography>
-          <Tabs value={tabIdx} onChange={handleTabChange}>
-            <Tab label='via Redux' />
+          <Tabs value={tabIdx} onChange={(event, value) => setTabIdx(value)}>
             <Tab label='Standalone' />
+            <Tab label='via Redux (legacy)' />
           </Tabs>
           {tabIdx === 0 && (
+            <div className={classes.demoform}>
+              <JsonForms
+                schema={schema}
+                uischema={uischema}
+                data={jsonformsInputData}
+                renderers={renderers}
+                cells={materialCells}
+                onChange={({ errors, data }) => setJsonformsOutputData(data)}
+              />
+            </div>
+          )}
+          {tabIdx === 1 && (
             <div className={classes.demoform} id='form'>
               {store ? (
                 <Provider store={store}>
@@ -134,22 +151,6 @@ const App = ({ store, classes }: AppProps) => {
                   </JsonFormsReduxContext>
                 </Provider>
               ) : null}
-            </div>
-          )}
-          {tabIdx === 1 && (
-            <div className={classes.demoform}>
-              <JsonForms
-                schema={schema}
-                uischema={uischema}
-                data={standaloneData}
-                renderers={[
-                  ...materialRenderers,
-                  //register custom renderer
-                  { tester: ratingControlTester, renderer: RatingControl }
-                ]}
-                cells={materialCells}
-                onChange={({ errors, data }) => setStandaloneData(data)}
-              />
             </div>
           )}
         </Grid>
