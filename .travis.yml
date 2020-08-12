@@ -17,4 +17,4 @@ install:
   - npm ci
 
 script:
-  - npm run test-cypress
+  - npm run cypress:ci

@@ -11,4 +11,4 @@ jobs:
         with:
           node-version: '10.x'
       - run: npm ci
-      - run: npm run test-cypress
+      - run: npm run cypress:ci

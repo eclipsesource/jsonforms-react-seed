@@ -23,16 +23,17 @@
     "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "cypress": "^3.7.0",
-    "react-scripts": "^3.2.0",
-    "start-server-and-test": "^1.10.6"
+    "cypress": "^4.12.1",
+    "react-scripts": "^3.4.2",
+    "start-server-and-test": "^1.11.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test-cypress": "start-server-and-test start http://localhost:3000 './node_modules/.bin/cypress run'",
-    "cypress": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --config video=false",
+    "cypress:ci": "BROWSER=none start-server-and-test start http://localhost:3000 cypress:run"
   },
   "browserslist": [
     ">0.2%",
