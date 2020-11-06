@@ -42,7 +42,7 @@ export class Rating extends React.Component<any, any> {
     const { onClick } = this.props;
 
     return (
-      <div id='#/properties/rating'>
+      <div id='#/properties/rating' className='rating'>
         <p>Rating:</p>
         {[0, 1, 2, 3, 4].map(i => {
           const rating =

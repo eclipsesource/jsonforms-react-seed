@@ -1,15 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import {
-  JsonForms,
-  JsonFormsDispatch,
-  JsonFormsReduxContext,
+  JsonForms
 } from '@jsonforms/react';
-import { Provider } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import createStyles from '@material-ui/core/styles/createStyles';
-import { Tabs, Tab } from '@material-ui/core';
 import logo from './logo.svg';
 import './App.css';
 import schema from './schema.json';
@@ -18,8 +14,6 @@ import {
   materialCells,
   materialRenderers,
 } from '@jsonforms/material-renderers';
-import { Store } from 'redux';
-import { get } from 'lodash';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
 
@@ -43,11 +37,7 @@ const styles = createStyles({
   },
 });
 
-export interface AppProps extends WithStyles<typeof styles> {
-  store: Store;
-}
-
-const data = {
+const initialData = {
   name: 'Send email to Adrian',
   description: 'Confirm if you have passed the subject\nHereby ...',
   done: true,
@@ -55,48 +45,20 @@ const data = {
   rating: 3,
 };
 
-const getDataAsStringFromStore = (store: Store) =>
-  store
-    ? JSON.stringify(
-        get(store.getState(), ['jsonforms', 'core', 'data']),
-        null,
-        2
-      )
-    : '';
-
 const renderers = [
   ...materialRenderers,
   //register custom renderers
   { tester: ratingControlTester, renderer: RatingControl },
 ];
 
-const App = ({ store, classes }: AppProps) => {
-  const [tabIdx, setTabIdx] = useState(0);
+const App = ({ classes }: WithStyles<typeof styles>) => {
   const [displayDataAsString, setDisplayDataAsString] = useState('');
-  const [jsonformsInputData, setJsonformsInputData] = useState<any>(data);
-  const [jsonformsOutputData, setJsonformsOutputData] = useState<any>(data);
+  const [jsonformsData, setJsonformsData] = useState<any>(initialData);
 
   useEffect(() => {
-    if (tabIdx === 0) {
-      setJsonformsInputData(jsonformsOutputData);
-      setDisplayDataAsString(JSON.stringify(jsonformsOutputData, null, 2));
-    } else {
-      setDisplayDataAsString(getDataAsStringFromStore(store));
-    }
-  }, [tabIdx, store, jsonformsOutputData]);
-
-  useEffect(() => {
-    const updateStringData = () => {
-      const stringData = getDataAsStringFromStore(store);
-      setDisplayDataAsString(stringData);
-    };
-    store.subscribe(updateStringData);
-    updateStringData();
-  }, [store]);
-
-  useEffect(() => {
-    setDisplayDataAsString(JSON.stringify(jsonformsOutputData, null, 2));
-  }, [jsonformsOutputData]);
+    setJsonformsData(jsonformsData);
+    setDisplayDataAsString(JSON.stringify(jsonformsData, null, 2));
+  }, [jsonformsData]);
 
   return (
     <Fragment>
@@ -126,33 +88,16 @@ const App = ({ store, classes }: AppProps) => {
           <Typography variant={'h3'} className={classes.title}>
             Rendered form
           </Typography>
-          <Tabs value={tabIdx} onChange={(event, value) => setTabIdx(value)}>
-            <Tab label='Standalone' />
-            <Tab label='via Redux (legacy)' />
-          </Tabs>
-          {tabIdx === 0 && (
-            <div className={classes.demoform}>
-              <JsonForms
-                schema={schema}
-                uischema={uischema}
-                data={jsonformsInputData}
-                renderers={renderers}
-                cells={materialCells}
-                onChange={({ errors, data }) => setJsonformsOutputData(data)}
-              />
-            </div>
-          )}
-          {tabIdx === 1 && (
-            <div className={classes.demoform} id='form'>
-              {store ? (
-                <Provider store={store}>
-                  <JsonFormsReduxContext>
-                    <JsonFormsDispatch />
-                  </JsonFormsReduxContext>
-                </Provider>
-              ) : null}
-            </div>
-          )}
+          <div className={classes.demoform}>
+            <JsonForms
+              schema={schema}
+              uischema={uischema}
+              data={initialData}
+              renderers={renderers}
+              cells={materialCells}
+              onChange={({ errors, data }) => setJsonformsData(data)}
+            />
+          </div>
         </Grid>
       </Grid>
     </Fragment>

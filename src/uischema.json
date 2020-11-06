@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Control",
-      "label": false,
+      "label": true,
       "scope": "#/properties/done"
     },
     {
