@@ -3,6 +3,7 @@ import {
   JsonForms
 } from '@jsonforms/react';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import createStyles from '@material-ui/core/styles/createStyles';
@@ -30,6 +31,11 @@ const styles = createStyles({
     justifyContent: 'center',
     borderRadius: '0.25em',
     backgroundColor: '#cecece',
+    marginBottom: '1rem',
+  },
+  resetButton: {
+    margin: ' auto',
+    display: 'block',
   },
   demoform: {
     margin: 'auto',
@@ -60,6 +66,10 @@ const App = ({ classes }: WithStyles<typeof styles>) => {
     setDisplayDataAsString(JSON.stringify(jsonformsData, null, 2));
   }, [jsonformsData]);
 
+  const resetData = () => {
+    setJsonformsData(initialData);
+  }
+
   return (
     <Fragment>
       <div className='App'>
@@ -83,6 +93,7 @@ const App = ({ classes }: WithStyles<typeof styles>) => {
           <div className={classes.dataContent}>
             <pre id='boundData'>{displayDataAsString}</pre>
           </div>
+          <Button className={classes.resetButton} onClick={resetData} color="primary" variant="contained">Reset data</Button>
         </Grid>
         <Grid item sm={6}>
           <Typography variant={'h3'} className={classes.title}>
