@@ -91,7 +91,7 @@ const App = ({ classes }: WithStyles<typeof styles>) => {
           <div className={classes.demoform}>
             <JsonForms
               schema={schema}
-              uischema={uischema}
+              data={jsonformsData}
               data={initialData}
               renderers={renderers}
               cells={materialCells}
