@@ -1,7 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import {
-  JsonForms
-} from '@jsonforms/react';
+import { JsonForms } from '@jsonforms/react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -62,13 +60,12 @@ const App = ({ classes }: WithStyles<typeof styles>) => {
   const [jsonformsData, setJsonformsData] = useState<any>(initialData);
 
   useEffect(() => {
-    setJsonformsData(jsonformsData);
     setDisplayDataAsString(JSON.stringify(jsonformsData, null, 2));
   }, [jsonformsData]);
 
-  const resetData = () => {
-    setJsonformsData(initialData);
-  }
+  const clearData = () => {
+    setJsonformsData({});
+  };
 
   return (
     <Fragment>
@@ -93,7 +90,14 @@ const App = ({ classes }: WithStyles<typeof styles>) => {
           <div className={classes.dataContent}>
             <pre id='boundData'>{displayDataAsString}</pre>
           </div>
-          <Button className={classes.resetButton} onClick={resetData} color="primary" variant="contained">Reset data</Button>
+          <Button
+            className={classes.resetButton}
+            onClick={clearData}
+            color='primary'
+            variant='contained'
+          >
+            Clear data
+          </Button>
         </Grid>
         <Grid item sm={6}>
           <Typography variant={'h3'} className={classes.title}>

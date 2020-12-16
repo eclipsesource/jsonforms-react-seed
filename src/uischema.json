@@ -3,7 +3,7 @@
   "elements": [
     {
       "type": "Control",
-      "label": true,
+      "label": "Completed",
       "scope": "#/properties/done"
     },
     {
@@ -22,13 +22,6 @@
           "scope": "#/properties/rating"
         }
       ]
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/description",
-      "options": {
-        "multi": true
-      }
     },
     {
       "type": "HorizontalLayout",
@@ -50,6 +43,13 @@
           }
         }
       ]
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/description",
+      "options": {
+        "multi": true
+      }
     }
   ]
 }

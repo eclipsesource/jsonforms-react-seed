@@ -11,7 +11,7 @@ interface RatingControlProps {
 const RatingControl = ({ data, handleChange, path }: RatingControlProps) => (
   <Rating
     value={data}
-    onClick={(ev: any) => handleChange(path, Number(ev.value))}
+    updateValue={(newValue: number) => handleChange(path, newValue)}
   />
 );
 

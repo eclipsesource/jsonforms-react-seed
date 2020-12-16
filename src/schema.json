@@ -6,6 +6,7 @@
       "minLength": 1
     },
     "description": {
+      "title": "Long Description",
       "type": "string"
     },
     "done": {
