@@ -13,21 +13,22 @@ export const Rating: React.FC<RatingProps> = ({ id, value, updateValue }) => {
   return (
     <div id='#/properties/rating' className='rating'>
       <p>Rating:</p>
-      {[0, 1, 2, 3, 4].map((i) => {
-        const fullStars = hoverAt ?? value;
+      <span style={{ cursor: 'pointer' }}>
+        {[0, 1, 2, 3, 4].map((i) => {
+          const fullStars = hoverAt ?? value;
 
-        return (
-          <span
-            onMouseOver={() => setHoverAt(i + 1)}
-            onMouseOut={() => setHoverAt(null)}
-            onClick={() => updateValue(i + 1)}
-            key={`${id}_${i}`}
-            style={{ cursor: 'pointer' }}
-          >
-            {i < fullStars ? '\u2605' : '\u2606'}
-          </span>
-        );
-      })}
+          return (
+            <span
+              onMouseOver={() => setHoverAt(i + 1)}
+              onMouseOut={() => setHoverAt(null)}
+              onClick={() => updateValue(i + 1)}
+              key={`${id}_${i}`}
+            >
+              {i < fullStars ? '\u2605' : '\u2606'}
+            </span>
+          );
+        })}
+      </span>
     </div>
   );
 };

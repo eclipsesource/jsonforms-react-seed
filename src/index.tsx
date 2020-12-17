@@ -1,5 +1,25 @@
+import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/**
+ * Customize form so each control has more space
+ */
+const theme = createMuiTheme({
+  overrides: {
+    MuiFormControl: {
+      root: {
+        margin: '0.8em 0',
+      },
+    },
+  },
+});
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <App />
+  </ThemeProvider>,
+  document.getElementById('root')
+);
