@@ -18,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((_theme) => ({
   container: {
     padding: '1em',
+    width: '100%',
   },
   title: {
     textAlign: 'center',
@@ -31,7 +32,7 @@ const useStyles = makeStyles((_theme) => ({
     marginBottom: '1rem',
   },
   resetButton: {
-    margin: ' auto',
+    margin: 'auto',
     display: 'block',
   },
   demoform: {
