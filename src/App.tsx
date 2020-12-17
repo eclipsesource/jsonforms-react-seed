@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { JsonForms } from '@jsonforms/react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
