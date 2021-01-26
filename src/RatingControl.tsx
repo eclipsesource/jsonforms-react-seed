@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { withJsonFormsControlProps } from '@jsonforms/react';
 import { Rating } from './Rating';
 
@@ -11,7 +10,7 @@ interface RatingControlProps {
 const RatingControl = ({ data, handleChange, path }: RatingControlProps) => (
   <Rating
     value={data}
-    onClick={(ev: any) => handleChange(path, Number(ev.value))}
+    updateValue={(newValue: number) => handleChange(path, newValue)}
   />
 );
 
