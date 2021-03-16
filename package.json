@@ -28,6 +28,12 @@
     "cypress:run": "cypress run --config video=false",
     "cypress:ci": "BROWSER=none start-server-and-test start http://localhost:3000 cypress:run"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
