@@ -2,24 +2,15 @@
   "type": "VerticalLayout",
   "elements": [
     {
-      "type": "Control",
-      "label": "Completed",
-      "scope": "#/properties/done"
-    },
-    {
-      "type": "Control",
-      "scope": "#/properties/name"
-    },
-    {
       "type": "HorizontalLayout",
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/due_date"
+          "scope": "#/properties/name"
         },
         {
           "type": "Control",
-          "scope": "#/properties/rating"
+          "scope": "#/properties/quote_expiry"
         }
       ]
     },
@@ -28,28 +19,92 @@
       "elements": [
         {
           "type": "Control",
-          "scope": "#/properties/recurrence"
+          "label": "Net D",
+          "scope": "#/properties/net_d"
         },
         {
           "type": "Control",
-          "scope": "#/properties/recurrence_interval",
-          "rule": {
-            "effect": "HIDE",
-            "condition": {
-              "type": "LEAF",
-              "scope": "#/properties/recurrence",
-              "expectedValue": "Never"
-            }
-          }
+          "label": "Payment Method",
+          "scope": "#/properties/payment_method"
+        },
+        {
+          "type": "Control",
+          "label": "Prepay amount",
+          "scope": "#/properties/prepay_amount"
+        },
+        {
+          "type": "Control",
+          "label": "Recharge Credit",
+          "scope": "#/properties/recharge_credit"
         }
       ]
     },
     {
-      "type": "Control",
-      "scope": "#/properties/description",
-      "options": {
-        "multi": true
-      }
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Origin Shield",
+          "scope": "#/properties/origin_shield"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Experience Monitoring",
+          "scope": "#/properties/synthetic_monitoring"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Routing Policy",
+          "scope": "#/properties/routing_policy"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "MCDN Orchestrations",
+          "scope": "#/properties/mcdn_orchestrations"
+        }
+      ]
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "mDNS",
+          "scope": "#/properties/mdns"
+        }
+      ]
+    },
+
+    {
+      "type": "Group",
+      "label": "Power-Ups Marketplace",
+      "elements": [
+        {
+          "type": "Control",
+          "label": "Basic CDNs",
+          "scope": "#/properties/basic_cdns"
+        },
+        {
+          "type": "Control",
+          "label": "Global CDNs",
+          "scope": "#/properties/global_cdns"
+        }
+      ]
     }
   ]
 }

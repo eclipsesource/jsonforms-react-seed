@@ -14,6 +14,9 @@ import {
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
 import { makeStyles } from '@material-ui/core/styles';
+import TierControlTester from './TierControlTester';
+import TierControl from './TierControl';
+import TierCell from './TierCell';
 
 const useStyles = makeStyles((_theme) => ({
   container: {
@@ -41,18 +44,184 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
+//const initialData = {
+//  name: 'Send email to Adrian',
+//  description: 'Confirm if you have passed the subject\nHereby ...',
+//  done: true,
+//  recurrence: 'Daily',
+//  rating: 3,
+//};
+
+//const initialData = data;
+
 const initialData = {
-  name: 'Send email to Adrian',
-  description: 'Confirm if you have passed the subject\nHereby ...',
-  done: true,
-  recurrence: 'Daily',
-  rating: 3,
-};
+  net_d: 30,
+  payment_method: 'Bank Transfer',
+  prepay_amount: 2000,
+  recharge_credit: 0,
+  origin_shield: [
+    {
+      name: 'Origin Shield',
+      free_tier: 0,
+      sample_usage: 1,
+      price: 200,
+      sample_amount: 200
+    }
+  ],
+  synthetic_monitoring: [
+    {
+      name: 'Synthetic Monitoring Checks',
+      free_tier: 100000,
+      sample_usage: 25000,
+      price: 0.50
+    }
+  ],
+  routing_policy: [
+    {
+      name: 'Static Routing Rules',
+      free_tier: 100,
+      sample_usage: 200
+    },
+    {
+      name: 'Dynamic Routing Rules',
+      free_tier: 100,
+      sample_usage: 50
+    }
+  ],
+  mcdn_orchestrations: [
+    {
+      name: 'No of CDN Integrations',
+      free_tier: 25,
+      sample_usage: 30,
+      price: 10,
+      sample_amount: 50
+    }
+  ],
+  mdns: [
+    {
+      name: 'DNS Records',
+      free_tier: 100,
+      sample_usage: 200,
+      unit_price: 0.4,
+  },
+  {
+    name: 'Global DNS Queries',
+    free_tier: 1000000,
+    sample_usage: 476200,
+    unit_price: 0.8,
+  },
+  {
+    name: 'China DNS Subscription',
+  },
+  {
+    name: 'China DNS Queries',
+    sample_usage: 6000000,
+    unit_price: 1.2,
+  }],
+  basic_cdns: [
+    {
+      name: 'AWS Cloudfront',
+      free_tier: 0,
+      sample_usage: 200,
+      tiers: [
+        { tier: '1 - x', price: 0.18 }, { tier: 'x - 10TB', price: 0.18 }, 
+        { tier: '11 - 100TB', price: 0.15 }, { tier: '101 - 1PB', price: 0.11 },
+        { tier: '>1PB', price: 0.09 }
+      ],
+      unit_price: 0.18,
+    },
+    {
+      name: 'StackPath',
+      free_tier: 0,
+      sample_usage: 300,
+      tiers: [
+        { tier: '1 - x', price: 0.18 }, { tier: 'x - 10TB', price: 0.18 }, 
+        { tier: '11 - 100TB', price: 0.15 }, { tier: '101 - 1PB', price: 0.11 },
+        { tier: '>1PB', price: 0.09 }
+      ],
+      unit_price: 0.18,
+    },
+    {
+      name: 'Cloudflare',
+      free_tier: 0,
+      sample_usage: 200,
+      tiers: [
+        { tier: '1 - x', price: 0.18 }, { tier: 'x - 10TB', price: 0.18 }, 
+        { tier: '11 - 100TB', price: 0.15 }, { tier: '101 - 1PB', price: 0.11 },
+        { tier: '>1PB', price: 0.09 }
+      ],
+      unit_price: 0.18,
+    },
+    {
+      name: 'GMA',
+      free_tier: 0,
+      sample_usage: 0,
+      tiers: [
+        { tier: '1 - x', price: 0.18 }, { tier: 'x - 10TB', price: 0.18 }, 
+        { tier: '11 - 100TB', price: 0.15 }, { tier: '101 - 1PB', price: 0.11 },
+        { tier: '>1PB', price: 0.09 }
+      ],
+      unit_price: 0.18,
+    }
+  ],
+  global_cdns: [
+    {
+      name: 'Aliyun',
+      tiers: [
+        { tier: '1 - x', price: 0.18 }, { tier: 'x - 10TB', price: 0.18 }, 
+        { tier: '11 - 100TB', price: 0.15 }, { tier: '101 - 1PB', price: 0.11 },
+        { tier: '>1PB', price: 0.07 }
+      ],
+    },
+    {
+      name: 'Aliyun China DCDN',
+      tiers: [
+        { tier: '1 - x', price: 1.20 }, { tier: 'x - 10TB', price: 1.20 }, 
+        { tier: '11 - 100TB', price: 1.10 }, { tier: '101 - 1PB', price: 0.85 },
+        { tier: '>1PB', price: 0.76 }
+      ],
+    },
+    {
+      name: 'CDNetworks',
+      tiers: [
+        { tier: '1 - x', price: 0.30 }, { tier: 'x - 10TB', price: 0.30 }, 
+        { tier: '11 - 100TB', price: 0.24 }, { tier: '101 - 1PB', price: 0.14 },
+        { tier: '>1PB', price: 0.11 }
+      ],
+    },
+    {
+      name: 'Verizon'
+    },
+    {
+      name: 'Fastly',
+      tiers: [
+        { tier: '1 - x', price: 0.30 }, { tier: 'x - 10TB', price: 0.30 }, 
+        { tier: '11 - 100TB', price: 0.24 }, { tier: '101 - 1PB', price: 0.14 },
+        { tier: '>1PB', price: 0.11 }
+      ],
+    },
+    {
+      name: 'Akamai',
+      tiers: [
+        { tier: '1 - x', price: 0.32 }, { tier: 'x - 10TB', price: 0.32 }, 
+        { tier: '11 - 100TB', price: 0.27 }, { tier: '101 - 1PB', price: 0.18 },
+        { tier: '>1PB', price: 0.15 }
+      ],
+    }
+  ]
+}
+
 
 const renderers = [
   ...materialRenderers,
   //register custom renderers
   { tester: ratingControlTester, renderer: RatingControl },
+  { tester: TierControlTester, renderer: TierControl},
+];
+
+const cells = [
+  ...materialCells,
+  { tester: TierControlTester, cell: TierCell },
 ];
 
 const App = () => {

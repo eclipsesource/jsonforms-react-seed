@@ -1,18 +1,143 @@
 {
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "mdns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer",
+            "label": "Sample usage"
+          },
+          "tiers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tier": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
     },
-    "description": {
-      "title": "Long Description",
+    "basic_cdns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer",
+            "label": "Sample sample_usage"
+          },
+          "tiers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tier": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "global_cdns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer",
+            "label": "Sample sample_usage"
+          },
+          "tiers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "tier": {
+                  "customRender": "tier",
+                  "type": "string"
+                },
+                "price": {
+                  "customRender": "tier",
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "name": {
       "type": "string"
     },
-    "done": {
-      "type": "boolean"
+    "net_d": {
+      "type": "integer",
+      "minLength": 1
     },
-    "due_date": {
+    "payment_method": {
+      "type": "string",
+      "enum": ["Credit Card", "Bank Transfer", "Crypto", "Offline"]
+    },
+    "prepay_amount": {
+      "type": "integer"
+    },
+    "recharge_credit": {
+      "type": "integer"
+    },
+    "quote_expiry": {
       "type": "string",
       "format": "date"
     },
@@ -24,9 +149,120 @@
       "type": "string",
       "enum": ["Never", "Daily", "Weekly", "Monthly"]
     },
-    "recurrence_interval": {
-      "type": "integer"
+
+    "origin_shield": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer"
+          },
+          "tiers": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
+    },
+
+    "synthetic_monitoring": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer",
+            "label": "Sample sample_usage"
+          },
+          "tiers": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
+    },
+
+    "routing_policy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer",
+            "label": "Sample sample_usage"
+          },
+          "tiers": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "mcdn_orchestrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "readOnly": true
+          },
+          "free_tier": {
+            "type": "integer"
+          },
+          "sample_usage": {
+            "type": "integer",
+            "label": "Sample sample_usage"
+          },
+          "tiers": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "sample_amount": {
+            "type": "number"
+          }
+        }
+      }
     }
   },
-  "required": ["name", "due_date"]
+  "required": ["name"]
 }
