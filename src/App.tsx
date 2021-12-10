@@ -1,8 +1,8 @@
 import { Fragment, useState, useEffect } from 'react';
 import { JsonForms } from '@jsonforms/react';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import logo from './logo.svg';
 import './App.css';
 import schema from './schema.json';
@@ -13,9 +13,9 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles((_theme) => ({
+const useStyles = makeStyles({
   container: {
     padding: '1em',
     width: '100%',
@@ -32,14 +32,14 @@ const useStyles = makeStyles((_theme) => ({
     marginBottom: '1rem',
   },
   resetButton: {
-    margin: 'auto',
-    display: 'block',
+    margin: 'auto !important',
+    display: 'block !important',
   },
   demoform: {
     margin: 'auto',
     padding: '1rem',
   },
-}));
+});
 
 const initialData = {
   name: 'Send email to Adrian',
@@ -80,12 +80,12 @@ const App = () => {
 
       <Grid
         container
-        justify={'center'}
+        justifyContent={'center'}
         spacing={1}
         className={classes.container}
       >
         <Grid item sm={6}>
-          <Typography variant={'h3'} className={classes.title}>
+          <Typography variant={'h4'} className={classes.title}>
             Bound data
           </Typography>
           <div className={classes.dataContent}>
@@ -101,7 +101,7 @@ const App = () => {
           </Button>
         </Grid>
         <Grid item sm={6}>
-          <Typography variant={'h3'} className={classes.title}>
+          <Typography variant={'h4'} className={classes.title}>
             Rendered form
           </Typography>
           <div className={classes.demoform}>
