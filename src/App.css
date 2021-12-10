@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 .App {
   text-align: center;
   margin-bottom: 0.5em;
@@ -10,7 +14,6 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: white;
 }
