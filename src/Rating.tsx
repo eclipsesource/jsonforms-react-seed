@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { InputLabel } from '@mui/material';
 
 interface RatingProps {
   id?: string;
@@ -12,8 +13,8 @@ export const Rating: React.FC<RatingProps> = ({ id, value, updateValue }) => {
 
   return (
     <div id='#/properties/rating' className='rating'>
-      <p>Rating:</p>
-      <span style={{ cursor: 'pointer' }}>
+      <InputLabel shrink style={{ marginTop: '0.8em' }}>Rating</InputLabel>
+      <div style={{ cursor: 'pointer', fontSize: '18px' }}>
         {[0, 1, 2, 3, 4].map((i) => {
           const fullStars = hoverAt ?? value;
 
@@ -28,7 +29,7 @@ export const Rating: React.FC<RatingProps> = ({ id, value, updateValue }) => {
             </span>
           );
         })}
-      </span>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useMemo } from 'react';
 import { JsonForms } from '@jsonforms/react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -57,15 +57,11 @@ const renderers = [
 
 const App = () => {
   const classes = useStyles();
-  const [displayDataAsString, setDisplayDataAsString] = useState('');
-  const [jsonformsData, setJsonformsData] = useState<any>(initialData);
-
-  useEffect(() => {
-    setDisplayDataAsString(JSON.stringify(jsonformsData, null, 2));
-  }, [jsonformsData]);
+  const [data, setData] = useState<any>(initialData);
+  const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
   const clearData = () => {
-    setJsonformsData({});
+    setData({});
   };
 
   return (
@@ -89,7 +85,7 @@ const App = () => {
             Bound data
           </Typography>
           <div className={classes.dataContent}>
-            <pre id='boundData'>{displayDataAsString}</pre>
+            <pre id='boundData'>{stringifiedData}</pre>
           </div>
           <Button
             className={classes.resetButton}
@@ -108,10 +104,10 @@ const App = () => {
             <JsonForms
               schema={schema}
               uischema={uischema}
-              data={jsonformsData}
+              data={data}
               renderers={renderers}
               cells={materialCells}
-              onChange={({ errors, data }) => setJsonformsData(data)}
+              onChange={({ errors, data }) => setData(data)}
             />
           </div>
         </Grid>
