@@ -14,6 +14,15 @@ import {
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
 import { makeStyles } from '@mui/styles';
+import { person } from '@jsonforms/examples';
+import {
+  materialRenderers,
+  materialCells,
+} from '@jsonforms/material-renderers';
+
+const schema = person.schema;
+const uischema = person.uischema;
+const initialData = person.data;
 
 const useStyles = makeStyles({
   container: {
