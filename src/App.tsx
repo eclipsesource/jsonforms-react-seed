@@ -14,6 +14,12 @@ import {
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
 import { makeStyles } from '@mui/styles';
+import i18next from 'i18next';
+import dayjs from 'dayjs';
+import 'dayjs/locale/de';
+import 'dayjs/locale/en';
+import translationEN from './localisation/en.json';
+import translationDE from './localisation/de.json';
 
 const useStyles = makeStyles({
   container: {
@@ -31,7 +37,7 @@ const useStyles = makeStyles({
     backgroundColor: '#cecece',
     marginBottom: '1rem',
   },
-  resetButton: {
+  button: {
     margin: 'auto !important',
     display: 'block !important',
   },
@@ -55,13 +61,43 @@ const renderers = [
   { tester: ratingControlTester, renderer: RatingControl },
 ];
 
+i18next.init({
+  resources: {
+    en: {
+      translation: translationEN
+    },
+    de: {
+      translation: translationDE
+    }
+  }
+});
+
+
 const App = () => {
   const classes = useStyles();
   const [data, setData] = useState<any>(initialData);
+  const [locale, setLocale] = useState<'de' | 'en'>('en');
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
+
+  const createTranslator = (locale: string) => (key: any, defaultMessage: any) => {
+    return i18next.exists(key) ? i18next.t(key) : defaultMessage;
+  };
+
+  const translation = useMemo(() => createTranslator(locale), [locale]);
+
+  i18next.changeLanguage(locale);
+  dayjs.locale(locale);
 
   const clearData = () => {
     setData({});
+  };
+
+  const switchLocale = () => {
+    if (locale === 'en') {
+      setLocale('de');
+    } else {
+      setLocale('en');
+    }
   };
 
   return (
@@ -87,14 +123,26 @@ const App = () => {
           <div className={classes.dataContent}>
             <pre id='boundData'>{stringifiedData}</pre>
           </div>
-          <Button
-            className={classes.resetButton}
-            onClick={clearData}
-            color='primary'
-            variant='contained'
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
           >
-            Clear data
-          </Button>
+            <Button
+              onClick={clearData}
+              color='primary'
+              variant='contained'
+            >
+              Clear data
+            </Button>
+            <Button onClick={switchLocale} color='primary' variant='contained'>
+              Switch language
+            </Button>
+            <Typography variant={'body1'} align={'center'}>
+              current language: {locale}
+            </Typography>
+          </Grid>
         </Grid>
         <Grid item sm={6}>
           <Typography variant={'h4'} className={classes.title}>
@@ -108,6 +156,7 @@ const App = () => {
               renderers={renderers}
               cells={materialCells}
               onChange={({ errors, data }) => setData(data)}
+              i18n={{ locale: locale, translate: translation }}
             />
           </div>
         </Grid>

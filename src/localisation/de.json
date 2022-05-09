@@ -1,0 +1,15 @@
+{
+  "name.label": "Name",
+  "description.label": "Beschreibung",
+  "done.label": "Abgeschlossen",
+  "due_date.label": "Fälligkeitsdatum",
+  "due_date.error.custom": "Bitte wählen sie ein gültiges Datum",
+  "rating.label": "Bewertung",
+  "rating.description": "Bewertung",
+  "recurrence.label": "Wiederholung",
+  "recurrence_interval.label": "Interval",
+  "recurrence.Monthly": "Monatlich",
+  "recurrence.Never": "Einmalig",
+  "recurrence.Weekly": "Wöchentlich",
+  "recurrence.Daily": "Täglich"
+}

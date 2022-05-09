@@ -6,14 +6,15 @@ interface RatingProps {
   id?: string;
   value: number;
   updateValue: (newValue: number) => void;
+  label: string;
 }
 
-export const Rating: React.FC<RatingProps> = ({ id, value, updateValue }) => {
+export const Rating: React.FC<RatingProps> = ({ id, value, updateValue, label }) => {
   const [hoverAt, setHoverAt] = useState<number | null>(null);
 
   return (
     <div id='#/properties/rating' className='rating'>
-      <InputLabel shrink style={{ marginTop: '0.8em' }}>Rating</InputLabel>
+      <InputLabel shrink style={{ marginTop: '0.8em' }}>{label}</InputLabel>
       <div style={{ cursor: 'pointer', fontSize: '18px' }}>
         {[0, 1, 2, 3, 4].map((i) => {
           const fullStars = hoverAt ?? value;
