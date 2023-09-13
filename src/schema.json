@@ -20,6 +20,19 @@
       "type": "integer",
       "maximum": 5
     },
+    "country": {
+      "type": "string",
+      "endpoint": "countries",
+      "dependent": ["region", "city"]
+    },
+    "region": {
+      "type": "string",
+      "endpoint": "regions",
+      "dependent": ["city"]
+    },
+    "city": {
+      "type": "string"
+    },
     "recurrence": {
       "type": "string",
       "enum": ["Never", "Daily", "Weekly", "Monthly"]
@@ -28,5 +41,6 @@
       "type": "integer"
     }
   },
+  "x-url": "www.api.com",
   "required": ["name", "due_date"]
 }

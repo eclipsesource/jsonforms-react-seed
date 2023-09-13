@@ -11,9 +11,15 @@ import {
   materialCells,
   materialRenderers,
 } from '@jsonforms/material-renderers';
-import RatingControl from './RatingControl';
-import ratingControlTester from './ratingControlTester';
+import RatingControl from './rating/RatingControl';
+import ratingControlTester from './rating/ratingControlTester';
 import { makeStyles } from '@mui/styles';
+import React from 'react';
+import countryControlTester from './country/countryControlTester';
+import CountryControl from './country/CountryControl';
+import regionControlTester from './region/regionControlTester';
+import RegionControl from './region/RegionControl';
+import { API } from './api';
 
 const useStyles = makeStyles({
   container: {
@@ -47,12 +53,18 @@ const initialData = {
   done: true,
   recurrence: 'Daily',
   rating: 3,
+  country: 'US',
 };
+
+const url = schema['x-url'];
+export const APIContext = React.createContext(new API(url));
 
 const renderers = [
   ...materialRenderers,
   //register custom renderers
   { tester: ratingControlTester, renderer: RatingControl },
+  { tester: countryControlTester, renderer: CountryControl },
+  { tester: regionControlTester, renderer: RegionControl },
 ];
 
 const App = () => {

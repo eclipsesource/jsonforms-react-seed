@@ -45,6 +45,23 @@
       ]
     },
     {
+      "type": "HorizontalLayout",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/country"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/region"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/city"
+        }
+      ]
+    },
+    {
       "type": "Control",
       "scope": "#/properties/description",
       "options": {
