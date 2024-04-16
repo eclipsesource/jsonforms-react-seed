@@ -13,9 +13,9 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
-import { makeStyles } from '@mui/styles';
+import { tss } from 'tss-react/mui';
 
-const useStyles = makeStyles({
+const useStyles = tss.create({
   container: {
     padding: '1em',
     width: '100%',
@@ -56,7 +56,7 @@ const renderers = [
 ];
 
 const App = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const [data, setData] = useState<any>(initialData);
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
