@@ -5,9 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@jsonforms/core": "3.3.0-beta.1",
-    "@jsonforms/material-renderers": "3.3.0-beta.1",
-    "@jsonforms/react": "3.3.0-beta.1",
+    "@jsonforms/core": "3.3.0",
+    "@jsonforms/material-renderers": "3.3.0",
+    "@jsonforms/react": "3.3.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.58",
     "@mui/material": "^5.13.0",
