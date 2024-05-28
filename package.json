@@ -5,12 +5,12 @@
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
-    "@jsonforms/core": "3.2.0",
-    "@jsonforms/material-renderers": "3.2.0",
-    "@jsonforms/react": "3.2.0",
-    "@mui/icons-material": "~5.11.16",
+    "@jsonforms/core": "3.3.0-beta.1",
+    "@jsonforms/material-renderers": "3.3.0-beta.1",
+    "@jsonforms/react": "3.3.0-beta.1",
+    "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.58",
-    "@mui/material": "~5.13.0",
+    "@mui/material": "^5.13.0",
     "@mui/styles": "^5.2.3",
     "@mui/x-date-pickers": "^6.5.0",
     "@types/node": "^14.14.14",
@@ -18,13 +18,16 @@
     "@types/react-dom": "^17.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "typescript": "^4.1.3"
+    "typescript": "~5.2.2"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
     "cypress": "^6.1.0",
     "react-scripts": "^5.0.1",
     "start-server-and-test": "^1.11.6"
+  },
+  "overrides": {
+    "typescript": "~5.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
