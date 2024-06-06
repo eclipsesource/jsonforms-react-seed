@@ -1,9 +1,8 @@
-import { Fragment, useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { JsonForms } from '@jsonforms/react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import logo from './logo.svg';
 import './App.css';
 import schema from './schema.json';
 import uischema from './uischema.json';
@@ -65,10 +64,10 @@ const App = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <div className='App'>
         <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
+          <img src='./logo.svg' className='App-logo' alt='logo' />
           <h1 className='App-title'>Welcome to JSON Forms with React</h1>
           <p className='App-intro'>More Forms. Less Code.</p>
         </header>
@@ -112,7 +111,7 @@ const App = () => {
           </div>
         </Grid>
       </Grid>
-    </Fragment>
+    </>
   );
 };
 
