@@ -12,9 +12,8 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from './ratingControlTester';
-import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles({
+const classes = {
   container: {
     padding: '1em',
     width: '100%',
@@ -38,7 +37,7 @@ const useStyles = makeStyles({
     margin: 'auto',
     padding: '1rem',
   },
-});
+};
 
 const initialData = {
   name: 'Send email to Adrian',
@@ -55,7 +54,6 @@ const renderers = [
 ];
 
 const App = () => {
-  const classes = useStyles();
   const [data, setData] = useState<any>(initialData);
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
@@ -77,17 +75,15 @@ const App = () => {
         container
         justifyContent={'center'}
         spacing={1}
-        className={classes.container}
+        style={classes.container}
       >
         <Grid item sm={6}>
-          <Typography variant={'h4'} className={classes.title}>
-            Bound data
-          </Typography>
-          <div className={classes.dataContent}>
+          <Typography variant={'h4'}>Bound data</Typography>
+          <div style={classes.dataContent}>
             <pre id='boundData'>{stringifiedData}</pre>
           </div>
           <Button
-            className={classes.resetButton}
+            style={classes.resetButton}
             onClick={clearData}
             color='primary'
             variant='contained'
@@ -96,10 +92,8 @@ const App = () => {
           </Button>
         </Grid>
         <Grid item sm={6}>
-          <Typography variant={'h4'} className={classes.title}>
-            Rendered form
-          </Typography>
-          <div className={classes.demoform}>
+          <Typography variant={'h4'}>Rendered form</Typography>
+          <div style={classes.demoform}>
             <JsonForms
               schema={schema}
               uischema={uischema}
