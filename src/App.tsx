@@ -10,7 +10,7 @@ import {
   materialCells,
   materialRenderers,
 } from '@jsonforms/material-renderers';
-import RatingControl from './RatingControl';
+import RatingControl from './components/RatingControl';
 import ratingControlTester from './ratingControlTester';
 
 const classes = {
