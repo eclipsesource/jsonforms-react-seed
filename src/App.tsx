@@ -54,7 +54,7 @@ const renderers = [
 ];
 
 const App = () => {
-  const [data, setData] = useState<any>(initialData);
+  const [data, setData] = useState<object>(initialData);
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
   const clearData = () => {
@@ -87,6 +87,7 @@ const App = () => {
             onClick={clearData}
             color='primary'
             variant='contained'
+            data-testid='clear-data'
           >
             Clear data
           </Button>
@@ -100,7 +101,7 @@ const App = () => {
               data={data}
               renderers={renderers}
               cells={materialCells}
-              onChange={({ errors, data }) => setData(data)}
+              onChange={({ data }) => setData(data)}
             />
           </div>
         </Grid>
