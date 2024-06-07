@@ -2,8 +2,8 @@ import { withJsonFormsControlProps } from '@jsonforms/react';
 import { Rating } from './Rating';
 
 interface RatingControlProps {
-  data: any;
-  handleChange(path: string, value: any): void;
+  data: number;
+  handleChange(path: string, value: number): void;
   path: string;
 }
 
@@ -14,4 +14,6 @@ const RatingControl = ({ data, handleChange, path }: RatingControlProps) => (
   />
 );
 
-export default withJsonFormsControlProps(RatingControl);
+// Fast refresh can't handle anonymous components.
+const RatingControlWithJsonForms = withJsonFormsControlProps(RatingControl);
+export default RatingControlWithJsonForms;
