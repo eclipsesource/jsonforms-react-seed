@@ -1,0 +1,29 @@
+{
+  "scope": "Workspace",
+  "tasks": {
+    "task-qOwN6wAbcOwvCa1jGY-Tj": {
+      "id": "task-qOwN6wAbcOwvCa1jGY-Tj",
+      "description": "fix/update cypress tests",
+      "columnId": "column-todo"
+    }
+  },
+  "columns": [
+    {
+      "id": "column-todo",
+      "title": "To do",
+      "tasksIds": [
+        "task-qOwN6wAbcOwvCa1jGY-Tj"
+      ]
+    },
+    {
+      "id": "column-doing",
+      "title": "Doing",
+      "tasksIds": []
+    },
+    {
+      "id": "column-done",
+      "title": "Done",
+      "tasksIds": []
+    }
+  ]
+}
