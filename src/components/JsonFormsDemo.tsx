@@ -64,20 +64,18 @@ export const JsonFormsDemo: FC = () => {
       container
       justifyContent={'center'}
       spacing={1}
-      style={classes.container}
-    >
+      style={classes.container}>
       <Grid item sm={6}>
         <Typography variant={'h4'}>Bound data</Typography>
         <div style={classes.dataContent}>
-          <pre id='boundData'>{stringifiedData}</pre>
+          <pre id="boundData">{stringifiedData}</pre>
         </div>
         <Button
           style={classes.resetButton}
           onClick={clearData}
-          color='primary'
-          variant='contained'
-          data-testid='clear-data'
-        >
+          color="primary"
+          variant="contained"
+          data-testid="clear-data">
           Clear data
         </Button>
       </Grid>
