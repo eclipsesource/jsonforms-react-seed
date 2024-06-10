@@ -11,4 +11,5 @@ jobs:
         with:
           node-version: '20.x'
       - run: npm ci
+      - run: npm run build
       - run: npm run cypress:ci
