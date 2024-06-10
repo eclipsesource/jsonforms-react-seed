@@ -14,8 +14,8 @@ context('Form', () => {
     cy.get('[id="#/properties/name-input"]').clear().type(nameText);
     cy.get('[id="#/properties/description-input"]').clear().type(descText);
     cy.get('[id="#/properties/done-input"]').uncheck();
-    // cy.get('[id="#/properties/recurrence"] > div').click();
-    // cy.get('[data-value="Monthly"]').click();
+    cy.get('[id="#/properties/recurrence"]').parentElement.click();
+    cy.get('[data-value="Monthly"]').click();
     cy.get('[id="#/properties/recurrence_interval-input"]')
       .clear()
       .type(recurrenceIntervalText);
