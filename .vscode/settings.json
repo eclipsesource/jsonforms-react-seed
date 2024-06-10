@@ -2,6 +2,5 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "mayank1513.trello-kanban.Workspace.filePath": ".tkb"
+  "prettier.singleQuote": true
 }

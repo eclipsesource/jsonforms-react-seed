@@ -9,8 +9,8 @@ import {
 } from '@jsonforms/material-renderers';
 import RatingControl from './RatingControl';
 import ratingControlTester from '../ratingControlTester';
-import schema from './schema.json';
-import uischema from './uischema.json';
+import schema from '../schema.json';
+import uischema from '../uischema.json';
 
 const classes = {
   container: {
