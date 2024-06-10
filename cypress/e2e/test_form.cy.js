@@ -15,7 +15,7 @@ context('Form', () => {
     cy.get('[id="#/properties/description-input"]').clear().type(descText);
     cy.get('[id="#/properties/done-input"]').uncheck();
     cy.get('[id="#/properties/recurrence"]').parent().click();
-    cy.get('[data-value="Monthly"]').click();
+    cy.get('[id="#/properties/recurrence-option-3"]').click(); // Monthly
     cy.get('[id="#/properties/recurrence_interval-input"]')
       .clear()
       .type(recurrenceIntervalText);
@@ -33,7 +33,7 @@ context('Form', () => {
 
         expect(data.description).to.equal(descText);
         expect(data.done).to.equal(false);
-        // expect(data.recurrence).to.equal('Monthly');
+        expect(data.recurrence).to.equal('Monthly');
         expect(data.recurrence_interval).to.equal(recurrenceIntervalText);
         expect(data.due_date).to.equal(dateText);
         expect(data.rating).to.equal(5);
@@ -49,17 +49,17 @@ context('Form', () => {
 
     cy.get('[id="#/properties/due_date"] p:first-child').should('not.be.empty');
 
-    // cy.get('[id="#/properties/recurrence"] > div').click();
-    // cy.get('[data-value="Never"]').click();
+    cy.get('[id="#/properties/recurrence"]').parent().click();
+    cy.get('[id="#/properties/recurrence-option-0"]').click(); // Never
 
-    // cy.get('[id="#/properties/recurrence_interval"]').should('not.exist');
+    cy.get('[id="#/properties/recurrence_interval"]').should('not.exist');
 
     cy.get('[id="boundData"]')
       .invoke('text')
       .then(content => {
         const data = JSON.parse(content);
 
-        // expect(data.due_date).to.equal('Invalid date');
+        expect(data.due_date).to.equal('Invalid date');
       });
   });
 });
