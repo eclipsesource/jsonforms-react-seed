@@ -1,8 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import { test } from 'vitest';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+/**
+ * Smoke test for the App component.
+ *
+ * - detailed testing is handled in cypress e2e tests.
+ */
+test('renders without crashing', () => {
+  render(<App />);
+  // does not crash on pressing clear data
+  act(() => fireEvent.click(screen.getByTestId('clear-data')));
 });
