@@ -44,7 +44,7 @@ const initialData = {
 };
 
 const renderers = [
-  ...materialRenderers
+  ...materialRenderers,
   //register custom renderers
   ];
 
