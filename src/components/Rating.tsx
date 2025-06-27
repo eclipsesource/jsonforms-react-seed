@@ -25,9 +25,19 @@ export const Rating: FC<RatingProps> = ({
 
           return (
             <span
+              role="button"
+              tabIndex={0}
+              aria-label={`Set rating to ${i + 1}`}
+              aria-valuenow={i + 1}
               onMouseOver={() => setHoverAt(i + 1)}
               onMouseOut={() => setHoverAt(null)}
               onClick={() => updateValue(i + 1)}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  updateValue(i + 1);
+                }
+              }}
               key={`${id}_${i}`}>
               {i < fullStars ? '\u2605' : '\u2606'}
             </span>
