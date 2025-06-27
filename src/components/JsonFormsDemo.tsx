@@ -11,6 +11,7 @@ import RatingControl from './RatingControl';
 import ratingControlTester from '../ratingControlTester';
 import schema from '../schema.json';
 import uischema from '../uischema.json';
+import { Task } from '../types/Task';
 
 const classes = {
   container: {
@@ -38,7 +39,7 @@ const classes = {
   },
 };
 
-const initialData = {
+const initialData: Task = {
   name: 'Send email to Adrian',
   description: 'Confirm if you have passed the subject\nHereby ...',
   done: true,
@@ -53,7 +54,7 @@ const renderers = [
 ];
 
 export const JsonFormsDemo: FC = () => {
-  const [data, setData] = useState<object>(initialData);
+  const [data, setData] = useState<Task>(initialData);
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
   const clearData = () => {
