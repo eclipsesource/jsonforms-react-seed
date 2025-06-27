@@ -1,24 +1,29 @@
 # JSON Forms React seed App
 
-This seed demonstrates how to use [JSON Forms](https://jsonforms.io) with React in order to render a simple form for displaying a task entity.
+This project demonstrates a small **JSON Forms Designer** built with React and Vite. It allows editing a JSON schema and UI schema side by side while a live preview renders the resulting form.
 
-It is based on `create-react-app` and only contains minor modifications.
+It was originally based on `create-react-app` but has been migrated to Vite.
 This project requires **Node.js 20** to run the tooling and tests.
 
 - Execute `npm ci` to install the prerequisites. If you want to have the latest released versions use `npm install`.
 - Execute `npm run build` to build the application.
 - Execute `npm start` to start the application.
 
-Browse to http://localhost:3000 to see the application in action.
+Browse to http://localhost:3000 to see the designer in action.
 
 ## File Structure
 
-Let's briefly have a look at the most important files:
+Important files:
 
-- `src/schema.json` contains the JSON schema (also referred to as 'data schema')
-- `src/uischema.json` contains the UI schema
-- `src/main.tsx` is the entry point of the application. We also customize the Material UI theme to give each control more space.
-- `src/App.tsx` is the main app component and makes use of the `JsonForms` component in order to render a form.
+- `src/context/DesignerContext.tsx` – holds the designer state
+- `src/components/*` – UI building blocks like editors, preview pane and sidebar
+- `src/utils/` – helper utilities
+
+## Usage
+
+Run `npm start` and open the application. Use the sidebar to import or export schemas
+and to load predefined templates. Edit the JSON Schema or UI Schema in the editors
+and watch the preview update instantly.
 
 The [data schema](src/schema.json) defines the structure of a Task: it contains attributes such as title, description, due date and so on.
 

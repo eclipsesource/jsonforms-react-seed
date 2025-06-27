@@ -34,3 +34,28 @@ html {
     transform: rotate(360deg);
   }
 }
+.pane {
+  height: 100%;
+}
+.sidebar {
+  padding: 1rem;
+}
+.preview-pane {
+  padding: 1rem;
+}
+.status-bar {
+  padding: 0.5rem;
+  background: #eee;
+  text-align: right;
+}
+.schema-tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.schema-tabs > div:first-child {
+  padding: 0.5rem;
+}
+.schema-tabs button {
+  margin-right: 0.5rem;
+}
