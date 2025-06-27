@@ -7,11 +7,15 @@ interface RatingProps {
   updateValue: (newValue: number) => void;
 }
 
-export const Rating: FC<RatingProps> = ({ id, value, updateValue }) => {
+export const Rating: FC<RatingProps> = ({
+  id = '#/properties/rating',
+  value,
+  updateValue,
+}) => {
   const [hoverAt, setHoverAt] = useState<number | null>(null);
 
   return (
-    <div id="#/properties/rating" className="rating">
+    <div id={id} className="rating">
       <InputLabel shrink style={{ marginTop: '0.8em' }}>
         Rating
       </InputLabel>
