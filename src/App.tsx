@@ -1,13 +1,14 @@
 import './App.css';
-import { Header } from './components/Header';
-import { JsonFormsDemo } from './components/JsonFormsDemo';
+import DesignerLayout from './components/DesignerLayout';
+import { DesignerProvider } from './context/DesignerContext';
+import { templates } from './context/templates';
 
 const App = () => {
+  const initial = templates[0];
   return (
-    <>
-      <Header />
-      <JsonFormsDemo />
-    </>
+    <DesignerProvider initialSchema={initial.schema as any} initialUiSchema={initial.uiSchema as any}>
+      <DesignerLayout />
+    </DesignerProvider>
   );
 };
 
