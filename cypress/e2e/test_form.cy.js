@@ -2,7 +2,7 @@
 
 context('Form', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
   });
 
   it('should change input values', () => {
