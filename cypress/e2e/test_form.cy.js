@@ -40,6 +40,20 @@ context('Form', () => {
       });
   });
 
+  it('should allow setting rating via keyboard', () => {
+    cy.get('[id="#/properties/rating"] span:last')
+      .focus()
+      .trigger('keydown', { key: 'Enter' });
+
+    cy.get('[id="boundData"]')
+      .invoke('text')
+      .then(content => {
+        const data = JSON.parse(content);
+
+        expect(data.rating).to.equal(5);
+      });
+  });
+
   it('should show errors', () => {
     cy.get('[id="#/properties/name-input"]').clear();
 
