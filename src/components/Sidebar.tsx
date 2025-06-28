@@ -1,3 +1,5 @@
+// TODO: Rebuild the sidebar using shadcn/ui primitives and Tailwind classes
+// for a consistent look once Material UI is replaced.
 import { useState } from 'react';
 import TemplateModal from './TemplateModal';
 import ImportExport from './ImportExport';

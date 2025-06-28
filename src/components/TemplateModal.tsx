@@ -1,3 +1,5 @@
+// TODO: Replace modal markup with shadcn/ui dialog components styled via
+// Tailwind.
 import { templates } from '../context/templates';
 import { useDesigner } from '../context/DesignerContext';
 

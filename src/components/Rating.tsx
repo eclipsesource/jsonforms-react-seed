@@ -1,3 +1,5 @@
+// TODO: Replace InputLabel and overall rating presentation with shadcn/ui
+// components and Tailwind styling.
 import { FC, useState } from 'react';
 import { InputLabel } from '@mui/material';
 

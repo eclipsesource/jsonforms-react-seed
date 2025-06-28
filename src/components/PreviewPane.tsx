@@ -1,3 +1,5 @@
+// TODO: Replace Material renderers with Tailwind-styled alternatives once
+// Tailwind and shadcn/ui are introduced.
 import { JsonForms } from '@jsonforms/react';
 import { materialRenderers, materialCells } from '@jsonforms/material-renderers';
 import { useDesigner } from '../context/DesignerContext';

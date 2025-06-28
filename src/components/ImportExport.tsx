@@ -1,3 +1,5 @@
+// TODO: Replace the buttons and file input in this component with shadcn/ui
+// elements styled via Tailwind CSS.
 import { useDesigner } from '../context/DesignerContext';
 import { downloadJson } from '../utils/download';
 

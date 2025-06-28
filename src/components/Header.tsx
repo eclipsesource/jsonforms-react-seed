@@ -1,3 +1,5 @@
+// TODO: Convert this header markup to use shadcn/ui components and Tailwind
+// utilities instead of plain classes.
 import { FC } from 'react';
 
 export const Header: FC = () => (

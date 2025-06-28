@@ -1,3 +1,5 @@
+// TODO: Once Tailwind is in place, style these controls with utility classes
+// and replace any remaining MUI components with shadcn/ui equivalents.
 import { useDraggable } from '@dnd-kit/core';
 
 const controls = ['Control', 'VerticalLayout', 'HorizontalLayout'];
