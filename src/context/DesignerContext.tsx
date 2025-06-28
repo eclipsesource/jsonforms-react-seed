@@ -37,6 +37,8 @@ export const DesignerProvider = ({ children, initialSchema, initialUiSchema }: P
   const [uiSchema, setUiSchema] = useState<UISchemaElement>(initialUiSchema);
   const [formData, setFormData] = useState<any>({});
   const [errors, setErrors] = useState<any[]>([]);
+  // TODO: expose a `useValidationErrors` hook that updates this state in
+  // real time so the editors can highlight issues as the user types.
 
   // TODO replace local initialSchema with data loaded from the forms API
 

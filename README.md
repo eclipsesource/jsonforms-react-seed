@@ -48,3 +48,9 @@ JSON Forms is rendered by importing and using the `JsonForms` component and dire
 ## Custom renderers
 
 Please see [our corresponding tutorial](https://jsonforms.io/docs/tutorial) on how to add custom renderers.
+
+## Future improvements
+
+- Introduce a `useValidationErrors` hook to share validation results between the
+  schema editors. This would allow the editors to display validation errors in
+  real time as users modify the JSON or UI schema.
