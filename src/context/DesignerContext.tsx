@@ -2,6 +2,9 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 import { JsonSchema7 } from '@jsonforms/core';
 import { UISchemaElement } from '@jsonforms/core';
 
+// TODO load and persist forms via REST API, e.g. fetch('/api/forms')
+// This will allow sharing schemas between users
+
 export interface DesignerState {
   schema: JsonSchema7;
   uiSchema: UISchemaElement;
@@ -34,6 +37,8 @@ export const DesignerProvider = ({ children, initialSchema, initialUiSchema }: P
   const [uiSchema, setUiSchema] = useState<UISchemaElement>(initialUiSchema);
   const [formData, setFormData] = useState<any>({});
   const [errors, setErrors] = useState<any[]>([]);
+
+  // TODO replace local initialSchema with data loaded from the forms API
 
   return (
     <DesignerContext.Provider
