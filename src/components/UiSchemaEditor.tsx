@@ -12,6 +12,10 @@ const UiSchemaEditor = () => {
     }
   };
 
+  // TODO: Register the current UI schema with Monaco's JSON language service
+  // so that the editor can offer auto-completion and error hints based on the
+  // schema content.
+
   return (
     <Editor
       height="100%"

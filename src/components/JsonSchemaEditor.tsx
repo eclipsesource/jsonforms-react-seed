@@ -12,6 +12,10 @@ const JsonSchemaEditor = () => {
     }
   };
 
+  // TODO: Register the current JSON schema with Monaco's JSON language service
+  // so that the editor provides auto-completion and error hints based on the
+  // schema definition.
+
   return (
     <Editor
       height="100%"
