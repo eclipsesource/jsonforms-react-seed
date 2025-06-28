@@ -18,4 +18,18 @@ export const templates = [
       ],
     },
   },
+  {
+    name: 'Contact Form',
+    // TODO: Define a more complete schema for capturing user contacts
+    schema: {},
+    // TODO: Provide a uiSchema with sensible defaults
+    uiSchema: {},
+  },
+  {
+    name: 'Survey',
+    // TODO: Implement a multi-step survey template
+    schema: {},
+    uiSchema: {},
+  },
+  // TODO: Add even more templates here as the library grows
 ];
