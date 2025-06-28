@@ -10,6 +10,12 @@ Steps:
 3. Install and configure Tailwind CSS together with Radix UI/shadcn.
 4. Replace current MUI components with Radix/shadcn equivalents.
 5. Port Vite-specific configuration and scripts to Next.js pages and routing.
+6. Remove the MUI theme setup in `src/main.tsx` and uninstall the `@mui/*`
+   packages.
+7. Replace the styles in `src/App.css` with Tailwind utility classes and
+   configure `tailwind.config.js` accordingly.
+8. Switch JSON Forms to use Tailwind-styled renderers or adapt the material
+   renderers to match the new design.
 -->
 
 This project demonstrates a small **JSON Forms Designer** built with React and Vite. It allows editing a JSON schema and UI schema side by side while a live preview renders the resulting form.

@@ -1,3 +1,5 @@
+// TODO: Replace structural markup with shadcn/ui components and Tailwind
+// classes once Material UI is removed.
 import { FC } from 'react';
 
 const FormsList: FC = () => {

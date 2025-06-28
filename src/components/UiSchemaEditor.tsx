@@ -1,3 +1,5 @@
+// TODO: Style the editor container with Tailwind and use shadcn/ui wrappers
+// after Material UI is removed from the project.
 import Editor from '@monaco-editor/react';
 import { useDesigner } from '../context/DesignerContext';
 

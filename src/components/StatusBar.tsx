@@ -1,3 +1,5 @@
+// TODO: Replace the StatusBar markup with shadcn/ui components and Tailwind
+// styling after migrating away from MUI.
 import { useDesigner } from '../context/DesignerContext';
 import { validate } from '../utils/validate';
 import { useEffect, useState } from 'react';

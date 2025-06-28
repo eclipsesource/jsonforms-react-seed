@@ -1,3 +1,5 @@
+// TODO: Tailwind styling should replace inline styles here once shadcn/ui is
+// adopted across the project.
 import { withJsonFormsControlProps } from '@jsonforms/react';
 import { Rating } from './Rating';
 

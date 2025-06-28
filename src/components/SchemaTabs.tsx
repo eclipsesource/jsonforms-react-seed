@@ -1,3 +1,5 @@
+// TODO: Convert these tabs to use shadcn/ui tab components and Tailwind
+// classes after the Material UI dependency is removed.
 import { useState } from 'react';
 import JsonSchemaEditor from './JsonSchemaEditor';
 import UiSchemaEditor from './UiSchemaEditor';

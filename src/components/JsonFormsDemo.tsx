@@ -1,3 +1,5 @@
+// TODO: Swap Material UI components for shadcn/ui primitives and apply
+// Tailwind classes throughout this demo once Tailwind is integrated.
 import { FC, useMemo, useState } from 'react';
 import { JsonForms } from '@jsonforms/react';
 import Grid from '@mui/material/Grid';

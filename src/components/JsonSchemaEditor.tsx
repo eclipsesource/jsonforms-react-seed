@@ -1,3 +1,5 @@
+// TODO: Style the editor container using Tailwind and replace any remaining MUI
+// wrappers with shadcn/ui components.
 import Editor from '@monaco-editor/react';
 import { useDesigner } from '../context/DesignerContext';
 

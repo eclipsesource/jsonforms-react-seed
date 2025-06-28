@@ -1,3 +1,5 @@
+// TODO: Replace layout styling with Tailwind classes and use shadcn/ui
+// components after migrating away from Material UI.
 import { useState } from 'react';
 import SplitPane from 'react-split-pane-next';
 import Sidebar from './Sidebar';
