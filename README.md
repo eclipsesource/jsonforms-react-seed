@@ -1,5 +1,17 @@
 # JSON Forms React seed App
 
+<!--
+TODO: Migrate this project from Vite and Material UI to a Next.js
+setup using Tailwind CSS and Radix UI components (shadcn).
+Steps:
+1. Create a fresh Next.js project with `create-next-app`.
+2. Move the existing JSON Forms components and context into the new
+   application structure.
+3. Install and configure Tailwind CSS together with Radix UI/shadcn.
+4. Replace current MUI components with Radix/shadcn equivalents.
+5. Port Vite-specific configuration and scripts to Next.js pages and routing.
+-->
+
 This project demonstrates a small **JSON Forms Designer** built with React and Vite. It allows editing a JSON schema and UI schema side by side while a live preview renders the resulting form.
 
 It was originally based on `create-react-app` but has been migrated to Vite.

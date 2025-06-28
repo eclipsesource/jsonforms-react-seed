@@ -1,3 +1,10 @@
+// TODO: Transition this project from Vite and MUI to a Next.js setup
+// using Tailwind CSS and Radix UI/shadcn components.
+// 1. Create a new Next.js project via `create-next-app`.
+// 2. Move the existing components and context into the Next.js app.
+// 3. Install Tailwind CSS and Radix UI (shadcn/ui) packages.
+// 4. Replace Material UI components with their Radix/shadcn equivalents.
+// 5. Adapt Vite-specific configuration to Next.js pages and routing.
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { createRoot } from 'react-dom/client';
 import App from './App';
