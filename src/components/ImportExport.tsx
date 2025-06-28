@@ -7,7 +7,7 @@ const ImportExport = () => {
   const importFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    file.text().then((text) => {
+    file.text().then(text => {
       try {
         const json = JSON.parse(text);
         if (json.schema) setSchema(json.schema);
@@ -21,8 +21,14 @@ const ImportExport = () => {
   return (
     <div>
       <input type="file" accept="application/json" onChange={importFile} />
-      <button onClick={() => downloadJson('schema.json', schema)}>Export Schema</button>
-      <button onClick={() => downloadJson('uischema.json', uiSchema)}>Export UI</button>
+      <button onClick={() => downloadJson('schema.json', schema)}>
+        Export Schema
+      </button>
+      <button onClick={() => downloadJson('uischema.json', uiSchema)}>
+        Export UI
+      </button>
+      {/* TODO add a button to copy JSON Schema and UI Schema to clipboard */}
+      {/* TODO add a button to reset the current schemas to initial template values */}
     </div>
   );
 };
