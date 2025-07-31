@@ -2,10 +2,7 @@
 
 This seed demonstrates how to use [JSON Forms](https://jsonforms.io) with React in order to render a simple form for displaying a task entity.
 
-It is based on `create-react-app` and only contains minor modifications.
-
 - Execute `npm ci` to install the prerequisites. If you want to have the latest released versions use `npm install`.
-- Execute `npm run build` to build the application.
 - Execute `npm start` to start the application.
 
 Browse to http://localhost:3000 to see the application in action.
@@ -25,7 +22,7 @@ The [corresponding UI schema](src/uischema.json) specifies controls for each pro
 
 ## Rendering JSON Forms
 
-JSON Forms is rendered by importing and using the `JsonForms` component and directly handing over the `schema`, `uischema`, `data`, `renderer` and `cell` props. We listen to changes in the form via the `onChange` callback.
+JSON Forms is rendered by importing and using the `JsonForms` component and directly handing over the `schema`, `uischema`, `data`, `renderers` and `cells` props. We listen to changes in the form via the `onChange` callback.
 
 ## Custom renderers
 
