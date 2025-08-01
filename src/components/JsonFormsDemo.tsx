@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 
+import { JsonSchema7, rankWith, schemaMatches, Tester } from '@jsonforms/core';
 import {
+  MaterialBooleanControl,
   materialCells,
   materialRenderers,
 } from '@jsonforms/material-renderers';
@@ -37,6 +39,48 @@ const classes = {
     padding: '1rem',
   },
 };
+
+interface DynamicDropdownCustomControl {
+  type: 'dynamic-dropdown';
+  data: {
+    sourceConnection: string;
+  };
+}
+
+interface ShadedTopoJsonCustomControl {
+  type: 'shaded-topojson';
+  topojson: {
+    sourceConnection: string;
+  };
+  data: {
+    sourceConnection: string;
+  };
+}
+
+interface CustomControlSchema extends JsonSchema7 {
+  'forms.nby.one/custom-control':
+    | ShadedTopoJsonCustomControl
+    | DynamicDropdownCustomControl;
+}
+
+function isNbyCustomControl(schema: object): schema is CustomControlSchema {
+  return Object.hasOwn(schema, 'forms.nby.one/custom-control');
+}
+
+const isTopoJsonControl: Tester = schemaMatches((schema, rootSchema) => {
+  return (
+    isNbyCustomControl(schema) &&
+    schema['forms.nby.one/custom-control'].type === 'shaded-topojson'
+  );
+});
+
+const renderers = [
+  ...materialRenderers,
+  {
+    tester: rankWith(3, isTopoJsonControl),
+    renderer: MaterialBooleanControl,
+  },
+];
 
 const initialData = {};
 
@@ -103,7 +147,7 @@ export function JsonFormsDemo() {
             schema={schemaObject}
             uischema={uiSchemaObject}
             data={data}
-            renderers={materialRenderers}
+            renderers={renderers}
             cells={materialCells}
             onChange={({ data }) => setData(data)}
           />
