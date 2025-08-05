@@ -1,18 +1,15 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 
-import { JsonSchema7, rankWith, schemaMatches, Tester } from '@jsonforms/core';
-import {
-  MaterialBooleanControl,
-  materialCells,
-  materialRenderers,
-} from '@jsonforms/material-renderers';
-import { JsonForms } from '@jsonforms/react';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
+import { JsonSchema7, rankWith, schemaMatches, Tester } from "@jsonforms/core";
+import { materialCells, materialRenderers } from "@jsonforms/material-renderers";
+import { JsonForms } from "@jsonforms/react";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
-import { useQueryState } from '../queryState';
-import { SchemaInput } from './SchemaInput';
+import { useQueryState } from "../queryState";
+import { Dropdown } from "./Dropdown";
+import { SchemaInput } from "./SchemaInput";
 
 const classes = {
   container: {
@@ -40,14 +37,14 @@ const classes = {
   },
 };
 
-interface DynamicDropdownCustomControl {
+export interface DynamicDropdownCustomControl {
   type: 'dynamic-dropdown';
   data: {
     sourceConnection: string;
   };
 }
 
-interface ShadedTopoJsonCustomControl {
+export interface ShadedTopoJsonCustomControl {
   type: 'shaded-topojson';
   topojson: {
     sourceConnection: string;
@@ -67,7 +64,7 @@ function isNbyCustomControl(schema: object): schema is CustomControlSchema {
   return Object.hasOwn(schema, 'forms.nby.one/custom-control');
 }
 
-const isTopoJsonControl: Tester = schemaMatches((schema, rootSchema) => {
+const isTopoJsonControl: Tester = schemaMatches(schema => {
   return (
     isNbyCustomControl(schema) &&
     schema['forms.nby.one/custom-control'].type === 'shaded-topojson'
@@ -77,8 +74,12 @@ const isTopoJsonControl: Tester = schemaMatches((schema, rootSchema) => {
 const renderers = [
   ...materialRenderers,
   {
-    tester: rankWith(3, isTopoJsonControl),
-    renderer: MaterialBooleanControl,
+    tester: rankWith(3, schemaMatches(isNbyCustomControl)),
+    renderer: Dropdown,
+  },
+  {
+    tester: rankWith(4, isTopoJsonControl),
+    renderer: Dropdown,
   },
 ];
 
