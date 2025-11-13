@@ -1,0 +1,8 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    { "type": "Control", "scope": "#/properties/name" },
+    { "type": "Control", "scope": "#/properties/letter" },
+    { "type": "Control", "scope": "#/properties/valueFromData" }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "Values": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "name": {
+      "type": "string"
+    },
+    "letter": {
+      "type": "string"
+    },
+    "valueFromData": {
+      "type": "string",
+      "forms.nby.one/custom-control": {
+        "type": "inline-dropdown",
+        "data": {
+          "sourceField": "Values"
+        }
+      }
+    }
+  },
+  "required": ["valueFromData"]
+}
