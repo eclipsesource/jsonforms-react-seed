@@ -65,7 +65,7 @@ export const JsonFormsDemo: FC = () => {
       justifyContent={'center'}
       spacing={1}
       style={classes.container}>
-      <Grid item sm={6}>
+      <Grid size={{ sm: 6 }}>
         <Typography variant={'h4'}>Bound data</Typography>
         <div style={classes.dataContent}>
           <pre id="boundData">{stringifiedData}</pre>
@@ -79,7 +79,7 @@ export const JsonFormsDemo: FC = () => {
           Clear data
         </Button>
       </Grid>
-      <Grid item sm={6}>
+      <Grid size={{ sm: 6 }}>
         <Typography variant={'h4'}>Rendered form</Typography>
         <div style={classes.demoform}>
           <JsonForms
