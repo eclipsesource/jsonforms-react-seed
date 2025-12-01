@@ -2,7 +2,7 @@
 
 This seed demonstrates how to use [JSON Forms](https://jsonforms.io) with React in order to render a simple form for displaying a task entity.
 
-It is based on `create-react-app` and only contains minor modifications.
+It is based on Vite and only contains minor modifications.
 
 - Execute `npm ci` to install the prerequisites. If you want to have the latest released versions use `npm install`.
 - Execute `npm run build` to build the application.
